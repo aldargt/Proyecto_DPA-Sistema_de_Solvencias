@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RepAnualSolv" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="025952e3-ae56-43af-9bf9-6b146fd58e52">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="103"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="0aac0fc7-88cd-44bb-98da-40d073c6b461"/>
+	<parameter name="gestion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cantidad" class="java.lang.String"/>
+	<parameter name="anio" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     solvencias.`id` AS solvencias_id,
+     solvencias.`fecha` AS solvencias_fecha,
+     solvencias.`nombre` AS solvencias_nombre,
+     solvencias.`unidad` AS solvencias_unidad,
+     solvencias.`nro_cuentab` AS solvencias_nro_cuentab,
+     solvencias.`ci_num` AS solvencias_ci_num,
+     solvencias.`ci_exped` AS solvencias_ci_exped,
+     solvencias.`celular` AS solvencias_celular,
+     solvencias.`fijo` AS solvencias_fijo,
+     solvencias.`realizado` AS solvencias_realizado,
+     solvencias.`ruta` AS solvencias_ruta
+FROM
+     `solvencias` solvencias
+WHERE YEAR(solvencias.fecha)=$P!{gestion} ORDER BY fecha]]>
+	</queryString>
+	<field name="solvencias_id" class="java.lang.Integer"/>
+	<field name="solvencias_fecha" class="java.sql.Date"/>
+	<field name="solvencias_nombre" class="java.lang.String"/>
+	<field name="solvencias_unidad" class="java.lang.String"/>
+	<field name="solvencias_nro_cuentab" class="java.lang.String"/>
+	<field name="solvencias_ci_num" class="java.lang.String"/>
+	<field name="solvencias_ci_exped" class="java.lang.String"/>
+	<field name="solvencias_celular" class="java.lang.String"/>
+	<field name="solvencias_fijo" class="java.lang.String"/>
+	<field name="solvencias_realizado" class="java.lang.String"/>
+	<field name="solvencias_ruta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="148" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="802" height="25" uuid="ec92a3af-c2d1-452e-b0fe-f070c027d434"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD MAYOR DE SAN SIMÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="802" height="25" uuid="bf79ad18-c58c-4a27-b61f-9426792b5d15"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE CERTIFICADOS DE SOLVENCIAS REALIZADOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="25" y="5" width="129" height="88" uuid="0a571464-1d15-44fe-bfa0-8fd79bcfcf90"/>
+				<imageExpression><![CDATA["src\\M (1).jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="35" width="802" height="25" uuid="8d58e1cc-f6d9-4680-ab65-096f18a77716"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE PERSONAL ACADÉMICO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="691" y="0" width="102" height="98" uuid="29606c4b-49fe-4af9-9ca8-4bce1f7f8c8f"/>
+				<imageExpression><![CDATA["src\\LOGOPA.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="571" y="98" width="72" height="20" uuid="a8824918-8abe-4e64-a9bb-051ba224c435"/>
+				<textElement>
+					<font isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Realizado por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="643" y="98" width="150" height="20" uuid="485f50fd-8b24-44c6-b81e-0e1caa4fa99d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[E. Teresa Coronel Vargas]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="643" y="118" width="150" height="20" uuid="1cfc55c5-05d4-4ea0-bd10-e0f71b92f4e7"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="504" y="118" width="139" height="20" uuid="c6806c7b-876e-4cd1-9896-d81dca91fa6f"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fecha generada del reporte:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="462" y="118" width="42" height="20" uuid="a228a99e-c17b-4b6a-a951-cc2033e94ea6"/>
+				<textFieldExpression><![CDATA[$P{cantidad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="293" y="118" width="169" height="20" uuid="95cb3064-a95d-4411-9b17-df47f1563744"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cantidad de solvencias realizadas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="98" width="44" height="20" uuid="5fdb685b-a9a0-4dfd-8bc4-5302e1798c2f"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Gestión:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="462" y="98" width="100" height="20" uuid="f8c0b124-73b1-45da-8ccd-643d0b1fee8c"/>
+				<textFieldExpression><![CDATA[$P{anio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="154" height="20" uuid="4c47bf77-c518-46da-b96a-e94722326f8d"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="113" height="20" uuid="7fe506bd-b64e-4be1-9ec5-fa7eb10cde1f"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[UNIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="71" height="20" uuid="ea691a95-c9d3-4566-b11a-ca5ef2432626"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[C. I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="0" width="100" height="20" uuid="6c0348fd-2dac-44bf-b213-86b6659870ea"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CUENTA BANCARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="67" height="20" uuid="cca82238-9349-4c13-95b9-708d1150b4e5"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CELULAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="0" width="67" height="20" uuid="bc1c8570-7378-45f9-a3f6-b5fe2e844267"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FIJO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="657" y="0" width="67" height="20" uuid="f3ab0a71-fd52-43e6-a69f-916c95fdb3d6"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ENCARGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="749" y="0" width="44" height="20" uuid="d08f5db8-e7bb-4c61-97c8-9b79236c5b74"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="154" y="0" width="113" height="30" uuid="1e52739e-abe2-4d8d-9d19-b0252f9a4512"/>
+				<textFieldExpression><![CDATA[$F{solvencias_unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="571" y="0" width="67" height="30" uuid="2e3ad8a7-ca69-4569-abe6-6c8a73f25527"/>
+				<textFieldExpression><![CDATA[$F{solvencias_fijo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="657" y="0" width="67" height="30" uuid="75845346-955e-4de5-97e8-1a18a8aa624c"/>
+				<textFieldExpression><![CDATA[$F{solvencias_realizado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="154" height="30" uuid="6d44e918-44d3-4206-96e0-8d7c639bd81f"/>
+				<textFieldExpression><![CDATA[$F{solvencias_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="0" width="100" height="30" uuid="3ffbb5ef-cb78-4e1e-a4a7-dd85db687998"/>
+				<textFieldExpression><![CDATA[$F{solvencias_nro_cuentab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="67" height="30" uuid="23e0d2e5-ec35-4daf-bc13-66f75fdc553e"/>
+				<textFieldExpression><![CDATA[$F{solvencias_celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="749" y="0" width="44" height="20" uuid="8dbc058c-246e-49b2-a033-cc6a0433fdbf"/>
+				<textFieldExpression><![CDATA[$F{solvencias_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="0" width="48" height="30" uuid="41f75368-0f44-4767-9642-f76735ef1acb"/>
+				<textFieldExpression><![CDATA[$F{solvencias_ci_num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="23" height="30" uuid="af3d88ab-4a1a-44f6-905e-d563e294d65f"/>
+				<textFieldExpression><![CDATA[$F{solvencias_ci_exped}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="30" width="802" height="1" uuid="17a86dfa-483d-44aa-927b-6afa1a78900a"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="329" y="8" width="80" height="20" uuid="103f72c2-1eb3-4305-968e-6bc310c57e0b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="409" y="8" width="40" height="20" uuid="62d7b037-5d6c-4fd3-a0c2-1d39e603aa7a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

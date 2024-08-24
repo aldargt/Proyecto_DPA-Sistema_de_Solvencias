@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Solvencia" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a74b05b5-87c2-4f15-9fa5-70ab1c0bfe0b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nombre" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ci" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="llave" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     solvencias.`id` AS solvencias_id,
+     solvencias.`fecha` AS solvencias_fecha,
+     solvencias.`nombre` AS solvencias_nombre,
+     solvencias.`unidad` AS solvencias_unidad,
+     solvencias.`nro_cuentab` AS solvencias_nro_cuentab,
+     solvencias.`ci_num` AS solvencias_ci_num,
+     solvencias.`ci_exped` AS solvencias_ci_exped,
+     solvencias.`celular` AS solvencias_celular,
+     solvencias.`fijo` AS solvencias_fijo,
+     solvencias.`realizado` AS solvencias_realizado,
+     solvencias.`ruta` AS solvencias_ruta
+FROM
+     `solvencias` solvencias
+WHERE solvencias.nombre='$P!{nombre}' AND solvencias.ci_num='$P!{ci}' AND solvencias.id=$P!{llave}]]>
+	</queryString>
+	<field name="solvencias_id" class="java.lang.Integer"/>
+	<field name="solvencias_fecha" class="java.sql.Date"/>
+	<field name="solvencias_nombre" class="java.lang.String"/>
+	<field name="solvencias_unidad" class="java.lang.String"/>
+	<field name="solvencias_nro_cuentab" class="java.lang.String"/>
+	<field name="solvencias_ci_num" class="java.lang.String"/>
+	<field name="solvencias_ci_exped" class="java.lang.String"/>
+	<field name="solvencias_celular" class="java.lang.String"/>
+	<field name="solvencias_fijo" class="java.lang.String"/>
+	<field name="solvencias_realizado" class="java.lang.String"/>
+	<field name="solvencias_ruta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="555" height="20" uuid="5e5f5443-6d69-4187-8797-9f5731c3eeae"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD MAYOR DE SAN SIMÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="20" uuid="f29ada9c-e2b0-4273-8ed7-01834c3068fb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE PERSONAL ACADÉMICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="555" height="20" uuid="119e8cec-039d-4328-a836-4ae8305a436d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[COCHABAMBA - BOLIVIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="81" width="555" height="30" uuid="52d830b6-2812-4899-9ab1-d09b917c468b"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO DE SOLVENCIA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="18" y="6" width="195" height="93" uuid="f8ba47fb-9cc6-458e-a7e7-01d71a07c5b7"/>
+				<imageExpression><![CDATA["src\\escudoumss.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="448" y="0" width="107" height="105" uuid="4b7d4947-d714-4003-ae35-018b68cdf8fa"/>
+				<imageExpression><![CDATA["src\\LOGOPA.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="641" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="15" uuid="a77587f1-4e13-41fd-a382-32d3e3f68d81"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Los que suscriben a continuación, certifican que el funcionario:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="15" width="555" height="54" uuid="d6ce7826-affe-4f33-9d34-54663b988c17"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="15" width="555" height="18" uuid="028fdbc7-b0ef-470b-b388-6f32f542b4dd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="33" width="555" height="18" uuid="9174a6fa-5d5e-4100-9e28-bd570083cc73"/>
+			</rectangle>
+			<line>
+				<reportElement x="278" y="15" width="1" height="54" uuid="f26eaf5e-ec1d-43fb-b40f-ae87a115c278"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="18" width="50" height="15" uuid="d81917b9-421e-403f-98ee-fd54108f6e3f"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Señor(a):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="43" height="15" uuid="755123c7-5fef-463e-a3d3-faead0cdc534"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Unidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="54" width="100" height="15" uuid="422e0d61-6d61-4a5f-88b2-42799e49f551"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Nº Cuenta Bancaria:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="18" width="104" height="15" uuid="933cd34b-b7db-40ab-84ee-9cf7a0da51e4"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Cédula de Identidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="36" width="43" height="15" uuid="518467ee-4c11-4a88-bf79-4c3b8527ba7f"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Celular:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="54" width="70" height="15" uuid="fc2ccc48-f4ff-4cca-9e93-7bddc5d041a4"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ Teléfono Fijo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="18" width="228" height="15" forecolor="#003399" uuid="6550ce4d-ab2c-4c39-b6ca-9d9e12027887"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="36" width="235" height="15" forecolor="#003399" uuid="32cdf882-1b3a-49b7-8ac2-617bb63a2c0a"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="54" width="178" height="15" forecolor="#003399" uuid="0d0813b2-44d6-46ba-a216-14384568dfe1"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_nro_cuentab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="54" width="207" height="15" forecolor="#003399" uuid="22588b99-7917-4266-8509-75fc7861bd5c"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_fijo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="36" width="234" height="15" forecolor="#003399" uuid="b766b8fb-968d-4d97-aed7-c1eb1a83ae15"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_celular}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="382" y="18" width="73" height="15" forecolor="#003399" uuid="a90da657-9f83-47f8-b5fd-a2d68dee1554"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_ci_num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="18" width="95" height="15" forecolor="#003399" uuid="da2a87d9-13a8-4002-8664-0b6edfe378ae"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solvencias_ci_exped}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="80" width="555" height="93" uuid="c373a2d2-8976-4a19-9a06-c636bf602ecd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="266" width="555" height="93" uuid="763366ac-3957-40d7-9bee-2796511f7b43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="173" width="555" height="93" uuid="1b3fd8c8-284e-4dd4-ad67-ef8f0d868b5c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="359" width="555" height="93" uuid="fcfe3f1e-5901-4d79-b06b-fb4d6b706690"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="452" width="555" height="93" uuid="4506c880-5098-4916-8ae7-937f16fb8c28"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="545" width="555" height="93" uuid="5e5193d8-fbff-4540-9ab6-ff44e0eec24e"/>
+			</rectangle>
+			<line>
+				<reportElement x="278" y="80" width="1" height="558" uuid="424e7416-7e1e-4792-915b-252490010c12"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="84" width="278" height="15" uuid="4a6fd263-e63f-49d2-a84d-7c452784facb"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="84" width="278" height="15" uuid="8ac519cd-566a-4978-90ef-3a684d977172"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="178" width="278" height="15" uuid="75a71c51-0db9-4f98-a9e9-4568b2020caa"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="178" width="278" height="15" uuid="9c67367d-21d9-4fa2-a6fc-5bbdbf5b4fdc"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="272" width="278" height="15" uuid="cb489f07-6c45-4823-80db-d26e72b4024b"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="272" width="278" height="15" uuid="f141aebc-cebc-48b7-b43f-cb9c0dad0470"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="365" width="278" height="15" uuid="63706944-3865-44e3-bd0c-8a3ff22136e2"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="365" width="278" height="15" uuid="f4ffca58-cf79-41ed-80e0-eccd003a8b55"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="458" width="278" height="15" uuid="5dd7b2fc-423a-45f7-a463-e8a95daafeb3"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="458" width="278" height="15" uuid="64372c35-c017-4c4b-9b50-55fe71c2cb54"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="551" width="278" height="15" uuid="2dc09ab1-92ba-4f72-98fc-7d6377f7b28a"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="551" width="278" height="15" uuid="a9c327fe-e7e0-4035-9150-b891b038e6a6"/>
+				<text><![CDATA[ No debe: ....................              Debe: ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="106" width="278" height="15" uuid="723f3cc1-3487-491f-98e1-e32f054b4476"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRÉSTAMOS UNIVERSITARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="106" width="278" height="15" uuid="d7870e07-0580-4898-983b-79d9ab590d64"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRÉSTAMOS UNIVERSITARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="200" width="278" height="15" uuid="d4d8e0b8-0207-4175-a741-41e59c4adabb"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRÉSTAMOS UNIVERSITARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="158" width="278" height="15" uuid="0c1b4819-fc84-4831-a7eb-686c96556097"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Edif. Mariscal Santa Cruz)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="143" width="278" height="15" uuid="164f19c6-bce0-440f-83c4-4d8def3f397f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Dpto. Contabilidad Integrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="158" width="278" height="15" uuid="f00908f9-146b-4a2c-8f0e-968ddbde7159"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Edif. Mariscal Santa Cruz)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="143" width="278" height="15" uuid="ee14fc0e-8ca1-4fc6-95a4-475926eaba1b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Sección Caja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="251" width="278" height="15" uuid="d611e032-c2fd-42b2-b3a4-9e384586ca38"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Edif. Mariscal Santa Cruz)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="236" width="278" height="15" uuid="6916f417-cc47-4196-8674-f43cbae650d9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Dpto. Tesorería y Crédito Público]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="251" width="278" height="15" uuid="5043f993-16da-43d1-bc31-950c2c96a4a6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Av. Oquendo Esq. Calama)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="236" width="278" height="15" uuid="c5b3d00f-49db-4786-86ab-f27cc5b89da6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[F.U.D.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="336" width="278" height="15" uuid="32630a47-e8e4-42fe-a0ef-8cc41b573970"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[S.I.T.U.M.S.S.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="336" width="278" height="15" uuid="a829797e-1b3e-4219-a154-7c3f374154c4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Biblioteca de la Carrera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="437" width="278" height="15" uuid="b6bf22cd-8b99-47a6-838e-1826fb4ae1a9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Fac. Ciencias Económicas)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="422" width="278" height="15" uuid="560cefd4-d0bf-4835-a90e-653e4cac2c3a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Biblioteca Central]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="437" width="278" height="15" uuid="ae078819-3018-4094-9be6-b238b07f7b32"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Contabilidad)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="422" width="278" height="15" uuid="01ef4bd1-d6cf-4dd5-a4e0-d97504a660f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[S.S.U.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="522" width="278" height="15" uuid="6e750309-eb3e-45ab-b901-2722d23a3e0b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Pulpería UMSS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="522" width="278" height="15" uuid="48dd5241-ad8e-4a1a-bab1-e8eb0c8794ae"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Caja Facultad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="623" width="278" height="15" uuid="d55e3b54-e3cf-46f4-8b64-485d507ad480"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Stria. Administrativa)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="623" width="278" height="15" uuid="600bab34-993d-491a-8fa7-cf95e2cae681"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(Final Jordán)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="608" width="278" height="15" uuid="91e82808-65f0-4ee6-8f10-df93a0e3943e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Facultad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="608" width="278" height="15" uuid="bba9a88a-98b2-4dd2-a3f2-8c253b756c49"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Inventarios]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="253" y="0" width="176" height="20" uuid="60a497fa-81e8-4acc-bd85-ef984231a538"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="28" height="20" uuid="e778829e-2cbb-49f8-85ce-9f1eb07fa289"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nota:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="20" width="527" height="20" uuid="79833990-7ef2-49e8-b56a-b86c53b1ee8d"/>
+				<text><![CDATA[La presente certificación debe llevar el nombre y apellidos del Responsable que certifica.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="0" width="70" height="20" uuid="13635bd6-83d0-420b-85f3-2d8a9fbba5bc"/>
+				<textElement>
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cochabamba,]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
